@@ -1,53 +1,41 @@
 package guru.springfamework.api.v1.mapper;
 
-import guru.springfamework.api.v1.model.VendorDto;
+import guru.springfamework.api.v1.model.VendorDTO;
 import guru.springfamework.domain.Vendor;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-/**
- * author : cadqe13@gmail.com
- * date : 2022-04-04
- * description :
- */
+import static org.junit.Assert.assertEquals;
 
 public class VendorMapperTest {
 
-	public static final String NAME = "VendingMachine";
-	public static final long ID = 1L;
+    public static final String NAME = "someName";
 
-	VendorMapper vendorMapper = VendorMapper.INSTANCE;
+    VendorMapper vendorMapper = VendorMapper.INSTANCE;
 
-	@Test
-	public void vendorToVendorDto() {
+    @Test
+    public void vendorToVendorDTO() throws Exception {
+        //given
+        Vendor vendor = new Vendor();
+        vendor.setName(NAME);
 
-		//given
-		Vendor vendor = new Vendor();
-		vendor.setId(ID);
-		vendor.setName(NAME);
+        //when
+        VendorDTO vendorDTO = vendorMapper.vendorToVendorDTO(vendor);
 
-		//when
-		VendorDto vendorDto = vendorMapper.vendorToVendorDto(vendor);
+        //then
+        assertEquals(vendor.getName(), vendorDTO.getName());
+    }
 
-		//then
-		assertEquals(Long.valueOf(ID), vendorDto.getId());
-		assertEquals(NAME, vendorDto.getName());
-	}
+    @Test
+    public void vendorDTOtoVendor() throws Exception {
+        //given
+        VendorDTO vendorDTO = new VendorDTO();
+        vendorDTO.setName(NAME);
 
-	@Test
-	public void vendorDtoToVendor() {
+        //when
+        Vendor vendor = vendorMapper.vendorDTOtoVendor(vendorDTO);
 
-		//given
-		VendorDto vendorDto = new VendorDto();
-		vendorDto.setId(ID);
-		vendorDto.setName(NAME);
+        //then
+        assertEquals(vendorDTO.getName(), vendor.getName());
+    }
 
-		//when
-		Vendor vendor = vendorMapper.vendorDtoToVendor(vendorDto);
-
-		//then
-		assertEquals(Long.valueOf(ID), vendor.getId());
-		assertEquals(NAME, vendor.getName());
-	}
 }

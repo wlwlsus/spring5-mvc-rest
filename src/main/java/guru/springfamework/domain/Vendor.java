@@ -8,19 +8,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * author : cadqe13@gmail.com
- * date : 2022-04-04
- * description : Vendor Entity
+ * Created by jt on 10/6/17.
  */
-
 @Data
 @Entity
 public class Vendor {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    private String name;
 }
-

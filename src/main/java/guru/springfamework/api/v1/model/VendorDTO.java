@@ -6,20 +6,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * author : cadqe13@gmail.com
- * date : 2022-04-04
- * description : Vendor DTO
+ * Created by jt on 10/6/17.
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VendorDto {
+public class VendorDTO {
+    private String name;
 
-	private Long id;
-	private String name;
-
-	@JsonProperty("vendor_url")
-	private String vendorUrl;
+    @JsonProperty("vendor_url")
+    private String vendorUrl;
 
 }

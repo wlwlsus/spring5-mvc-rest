@@ -7,14 +7,12 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 /**
- * author : cadqe13@gmail.com
- * date : 2022-04-04
- * description : Vendor 목록을 출력해 줄  List DTO
+ * Created by jt on 10/8/17.
  */
-
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class VendorListDto {
-	List<VendorDto> vendors;
+@NoArgsConstructor
+public class VendorListDTO {
+
+    List<VendorDTO> vendors;
 }

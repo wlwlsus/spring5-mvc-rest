@@ -1,28 +1,23 @@
 package guru.springfamework.services;
 
-import guru.springfamework.api.v1.model.VendorDto;
+import guru.springfamework.api.v1.model.VendorDTO;
+import guru.springfamework.api.v1.model.VendorListDTO;
 
-import java.util.List;
 
 /**
- * author : cadqe13@gmail.com
- * date : 2022-04-05
- * description : Vendor Service
+ * Created by jt on 10/6/17.
  */
-
 public interface VendorService {
 
-	List<VendorDto> getAllVendors();
+    VendorDTO getVendorById(Long id);
 
-	VendorDto getVendorByName(String name);
+    VendorListDTO getAllVendors();
 
-	VendorDto getVendorById(Long id);
+    VendorDTO createNewVendor(VendorDTO vendorDTO);
 
-	VendorDto createNewVendor(VendorDto vendorDto);
+    VendorDTO saveVendorByDTO(Long id, VendorDTO vendorDTO);
 
-	VendorDto saveVendorByDto(Long id, VendorDto vendorDto);
+    VendorDTO patchVendor(Long id, VendorDTO vendorDTO);
 
-	VendorDto patchVendor(Long id, VendorDto vendorDto);
-
-	void deleteVendorById(Long id);
+    void deleteVendorById(Long id);
 }
